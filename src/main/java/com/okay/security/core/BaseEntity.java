@@ -7,8 +7,8 @@ import java.io.Serializable;
 public abstract class BaseEntity implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "pkid")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "pkid", updatable = false)
     private Integer id;
 
     public Integer getId() {
