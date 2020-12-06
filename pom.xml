@@ -12,7 +12,7 @@
     <artifactId>okay-security</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>okay-security</name>
+    <name>security</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -62,7 +62,7 @@
                 </goals>
                 <configuration>
                   <classifier>spring-boot</classifier>
-                  <mainClass>com.okay.security.OkaySecurityApplication</mainClass>
+                  <mainClass>com.okay.security.SecurityApplication</mainClass>
                 </configuration>
               </execution>
             </executions>

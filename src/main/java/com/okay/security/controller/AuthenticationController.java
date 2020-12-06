@@ -5,13 +5,9 @@ import com.okay.security.service.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("auth")
@@ -31,7 +27,13 @@ public class AuthenticationController {
         }
     }
 
-//    @Secured("ROLE_A")
+    //@PreAuthorize("permitAll()")
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public ResponseEntity<UserDto> register(@RequestBody UserDto userDto) {
+        return new ResponseEntity<>(authenticationService.register(userDto), HttpStatus.OK);
+    }
+
+    //    @Secured("ROLE_A")
     @RequestMapping(value = "/testA", method = RequestMethod.GET)
     public ResponseEntity<String> testA() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -45,7 +47,7 @@ public class AuthenticationController {
         return new ResponseEntity<>("Başarılı response: Test B", HttpStatus.OK);
     }
 
-//    @Secured({"ROLE_A", "ROLE_B", "ROLE_C"})
+    //    @Secured({"ROLE_A", "ROLE_B", "ROLE_C"})
     @RequestMapping(value = "/testC", method = RequestMethod.GET)
     public ResponseEntity<String> testC() {
         return new ResponseEntity<>("Başarılı response: Test C", HttpStatus.OK);

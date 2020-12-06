@@ -20,5 +20,6 @@ public class UserConverter extends AbstractBaseConverter<UserDto, User> {
         entity.setName(dto.getName());
         entity.setSurname(dto.getSurname());
         entity.setUsername(dto.getUsername());
+        entity.setPassword(dto.getPassword());
     }
 }
