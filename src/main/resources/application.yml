@@ -1,0 +1,10 @@
+server:
+  port: 5555
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/role_db
+    username: postgres
+    password: postgres
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
