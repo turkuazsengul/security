@@ -2,6 +2,8 @@ package com.okay.security.model;
 
 import com.okay.security.core.BaseModel;
 
+import java.util.List;
+
 public class UserDto extends BaseModel {
 
     private String name;
@@ -11,6 +13,8 @@ public class UserDto extends BaseModel {
     private String username;
 
     private String password;
+
+    private List<RoleDto> roleList;
 
     public String getName() {
         return name;
@@ -42,5 +46,13 @@ public class UserDto extends BaseModel {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<RoleDto> getRoleList() {
+        return roleList;
+    }
+
+    public void setRoleList(List<RoleDto> roleList) {
+        this.roleList = roleList;
     }
 }
